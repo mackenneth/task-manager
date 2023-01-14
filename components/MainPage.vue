@@ -1,5 +1,5 @@
 <template>
-  <section class="h-screen flex justify-center items-center">
+  <section class="h-[90vh] flex justify-center items-center">
     <div class="text-center">
       <h1 class="text-4xl font-semi-bold mb-2">
         Менеджер задач
