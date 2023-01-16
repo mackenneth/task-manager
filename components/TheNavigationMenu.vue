@@ -1,6 +1,6 @@
 <template>
   <nav class="navigation">
-    <ul class="flex justify-around gap-1 max-w-lg m-auto">
+    <ul class="flex justify-center flex-col sm:justify-around sm:flex-row gap-1 max-w-lg m-auto text-center">
       <li
         v-for="(navigationItem, index) in navigationMenuItems"
         :key="index"
@@ -38,7 +38,7 @@ export default {
         prefetch: false
       },
       {
-        route: '/task-list',
+        route: '/tasks',
         text: 'Список задач',
         prefetch: false
       },
