@@ -25,6 +25,8 @@
       ease-in-out
   "
     :type="type"
+    :disabled="disabled"
+    :class="{'opacity-60':disabled}"
   >
     <slot />
   </button>
@@ -38,6 +40,10 @@ export default {
     type: {
       type: String,
       default: 'button'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   }
 }
