@@ -3,7 +3,12 @@
     <task-list-page-header class="mb-2" />
     <hr class="mb-5">
     <form-new-task class="mb-5" />
-
+    <task-progress-bar
+      :completed-tasks-count="store.completedTasks.length"
+      :total-task-count="store.tasks.length"
+      :is-fetching="isFetching"
+      class="mb-5"
+    />
     <task-search-input class="mb-5" />
     <task-list
       title="Текущие задачи"
@@ -27,10 +32,12 @@ import FormNewTask from '~/components/tasks/form/FormNewTask.vue'
 import TaskList from '~/components/tasks/TaskList.vue'
 import { useTasksStore } from '~/store/tasks'
 import TaskSearchInput from '~/components/tasks/TaskSearchInput.vue'
+import TaskProgressBar from '~/components/tasks/TaskProgressBar.vue'
 
 export default {
   name: 'tasks',
   components: {
+    TaskProgressBar,
     TaskSearchInput,
     FormNewTask,
     TaskListPageHeader,
