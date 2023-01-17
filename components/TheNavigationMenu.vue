@@ -1,5 +1,5 @@
 <template>
-  <nav class="navigation">
+  <nav class="navigation p-3">
     <ul class="flex justify-center flex-col sm:justify-around sm:flex-row gap-1 max-w-lg m-auto text-center">
       <li
         v-for="(navigationItem, index) in navigationMenuItems"
@@ -28,8 +28,6 @@ type TNavigationMenuItem = {
 
 export default {
   name: 'TheNavigationMenu',
-  components: {},
-  props: {},
   setup () {
     const navigationMenuItems: Array<TNavigationMenuItem> = [
       {
