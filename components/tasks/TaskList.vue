@@ -4,7 +4,16 @@
       {{ title }}
     </h3>
     <div
-      v-if="tasks.length"
+      v-if="isFetching"
+      class="grid sm:grid-cols-2 gap-4"
+    >
+      <skeleton-task-item
+        v-for="i in [1, 2, 3, 4]"
+        :key="i"
+      />
+    </div>
+    <div
+      v-else-if="tasks.length"
       class="grid sm:grid-cols-2 gap-4"
     >
       <task-item
@@ -20,14 +29,17 @@
 </template>
 
 <script lang="ts">
-import { computed, PropType } from 'vue'
+import { PropType } from 'vue'
 import TaskItem from '~/components/tasks/TaskItem.vue'
+import SkeletonTaskItem from '~/components/tasks/SkeletonTaskItem.vue'
 import { TTask } from '~/core/types/tasks'
-import { useTasksStore } from '~/store/tasks'
 
 export default {
   name: 'TaskList',
-  components: { TaskItem },
+  components: {
+    TaskItem,
+    SkeletonTaskItem
+  },
   props: {
     tasks: {
       type: Array as PropType<Array<TTask>>,
@@ -36,15 +48,10 @@ export default {
     title: {
       type: String,
       default: ''
-    }
-  },
-  setup () {
-    const store = useTasksStore()
-
-    const isGlobalFetching = computed(() => store.isFetching)
-
-    return {
-      isGlobalFetching
+    },
+    isFetching: {
+      type: Boolean,
+      default: false
     }
   }
 }

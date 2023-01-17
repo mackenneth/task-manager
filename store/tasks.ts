@@ -58,21 +58,22 @@ export const useTasksStore = defineStore('tasks', {
       })
     },
     getUserTasks () {
-      this.toggleIsFetching(true)
-
-      if (this.userId) {
-        httpApiService.getTasksByUserId(this.userId)
-          .then((response) => {
-            this.tasks = response.data
-          })
-          .catch((error) => {
-            // eslint-disable-next-line no-console
-            console.log('Log error', error)
-          })
-          .finally(() => {
-            this.toggleIsFetching(false)
-          })
-      }
+      return new Promise((resolve, reject) => {
+        if (this.userId) {
+          httpApiService.getTasksByUserId(this.userId)
+            .then((response) => {
+              this.tasks = response.data
+              resolve(response)
+            })
+            .catch((error) => {
+              // eslint-disable-next-line no-console
+              console.log('Log error', error)
+              reject(error)
+            })
+            .finally(() => {
+            })
+        }
+      })
     },
     editTask (editingTask: TTask): Promise<any> {
       return new Promise((resolve, reject) => {
