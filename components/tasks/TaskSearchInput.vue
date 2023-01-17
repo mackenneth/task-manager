@@ -1,6 +1,6 @@
 <template>
   <custom-input
-    v-model="searchQuery"
+    v-model.trim="searchQuery"
     placeholder="Поиск..."
   />
 </template>

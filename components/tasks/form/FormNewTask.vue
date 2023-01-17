@@ -2,7 +2,7 @@
   <form @submit.prevent="addNewTask">
     <div class="flex gap-2">
       <custom-input
-        v-model="taskTitle"
+        v-model.trim="taskTitle"
         placeholder="Новая задача..."
         :invalid="!isTaskTitleValid"
         @keyup="addNewTask"
