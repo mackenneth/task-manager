@@ -6,6 +6,7 @@
         <br>
         Организуйте работу и жизнь
       </h1>
+      <img src="/img/main-page-logo.svg" class="w-full max-w-[650px] mb-4" alt="Логотип">
       <p class="font-light text-gray-600">
         Приложение поможет вам обрести концентрацию, организованность и покой.
       </p>
