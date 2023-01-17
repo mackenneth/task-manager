@@ -1,8 +1,8 @@
 export default {
   head: {
-    title: 'task-manager',
+    title: 'Менеджер задач',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ru'
     },
     meta: [
       { charset: 'utf-8' },
@@ -13,7 +13,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: ''
+        content: 'Приложение Менеджер задач. Повышайте вашу продуктивность и эффективность.'
       },
       {
         name: 'format-detection',
