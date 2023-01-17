@@ -20,9 +20,10 @@
 </template>
 
 <script lang="ts">
-import { PropType } from 'vue'
+import { computed, PropType } from 'vue'
 import TaskItem from '~/components/tasks/TaskItem.vue'
 import { TTask } from '~/core/types/tasks'
+import { useTasksStore } from '~/store/tasks'
 
 export default {
   name: 'TaskList',
@@ -35,6 +36,15 @@ export default {
     title: {
       type: String,
       default: ''
+    }
+  },
+  setup () {
+    const store = useTasksStore()
+
+    const isGlobalFetching = computed(() => store.isFetching)
+
+    return {
+      isGlobalFetching
     }
   }
 }
