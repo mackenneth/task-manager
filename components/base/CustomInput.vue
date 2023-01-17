@@ -19,7 +19,8 @@
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-    "
+       "
+    :class="{ 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500': invalid}"
   >
 </template>
 
@@ -40,6 +41,10 @@ export default {
     value: {
       type: [String, Number],
       default: ''
+    },
+    invalid: {
+      type: Boolean,
+      default: false
     }
   },
   setup (props: { value: string | number; }, { emit }: any) {
