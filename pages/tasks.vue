@@ -5,7 +5,7 @@
     <form-new-task class="mb-5" />
     <task-progress-bar
       :completed-tasks-count="store.completedTasks.length"
-      :total-task-count="store.tasks.length"
+      :total-task-count="store.completedTasks.length + store.currentTasks.length"
       :is-fetching="isFetching"
       class="mb-5"
     />
