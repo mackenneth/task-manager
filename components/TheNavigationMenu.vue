@@ -61,6 +61,6 @@ export default {
 }
 
 .navigation__item :not(.nuxt-link-exact-active):hover {
-  color: blue;
+  color: #3670EF;
 }
 </style>
