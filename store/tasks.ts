@@ -92,6 +92,24 @@ export const useTasksStore = defineStore('tasks', {
           })
       })
     },
+
+    deleteTask (taskId: number): Promise<any> {
+      return new Promise((resolve, reject) => {
+        httpApiService.deleteTask(taskId)
+          .then((response) => {
+            const deletedTaskId = this.tasks.findIndex(task => task.id === taskId)
+            if (deletedTaskId !== -1) {
+              this.tasks.splice(deletedTaskId, 1)
+            }
+            resolve(response)
+          })
+          .catch((error) => {
+            // eslint-disable-next-line no-console
+            console.log('Log error', error)
+            reject(error)
+          })
+      })
+    },
     updateSearchQuery (searchQuery: string) {
       this.searchQuery = searchQuery
     },

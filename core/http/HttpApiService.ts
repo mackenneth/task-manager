@@ -23,4 +23,8 @@ export default class HttpApiService {
   public editTaskById (task: TTask): AxiosPromise {
     return this.axiosInstance.put(`${this.configs.tasks}/${task.id}`, task)
   }
+
+  public deleteTask (taskId: number): AxiosPromise {
+    return this.axiosInstance.delete(`${this.configs.tasks}/${taskId}`)
+  }
 }
