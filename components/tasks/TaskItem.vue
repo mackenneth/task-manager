@@ -1,29 +1,10 @@
 <template>
   <div class="flex items-baseline gap-2 border-b-gray-500 shadow px-4 py-4 relative">
-    <input
-      type="checkbox"
-      :checked="task.completed"
+    <task-status-toggle
       :disabled="isFetching"
-      class="
-        h-4
-        w-4
-        border
-        border-gray-300
-        rounded-sm
-        bg-white
-        checked:bg-blue-600
-        checked:border-blue-600
-        focus:outline-none
-        transition
-        duration-200
-        mt-1
-        align-top
-        float-left
-        mr-2
-        cursor-pointer
-      "
+      :checked="task.completed"
       @input="toggleCompletedStatus"
-    >
+    />
     <h6 class="font-semibold mr-[50px]">
       {{ task.title }}
     </h6>
@@ -39,10 +20,14 @@ import { PropType, ref } from 'vue'
 import { TTask } from '~/core/types/tasks'
 import { useTasksStore } from '~/store/tasks'
 import ButtonDeleteTask from '~/components/tasks/actions/ButtonDeleteTask.vue'
+import TaskStatusToggle from '~/components/tasks/actions/TaskStatusToggle.vue'
 
 export default {
   name: 'TaskItem',
-  components: { ButtonDeleteTask },
+  components: {
+    TaskStatusToggle,
+    ButtonDeleteTask
+  },
   props: {
     task: {
       type: Object as PropType<TTask>,
