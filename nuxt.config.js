@@ -37,6 +37,10 @@ export default {
 
   components: true,
 
+  env: {
+    FAKE_API_URL: process.env.FAKE_API_URL
+  },
+
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxt/postcss8',
