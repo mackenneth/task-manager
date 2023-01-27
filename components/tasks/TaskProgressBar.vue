@@ -33,7 +33,6 @@ import { computed } from 'vue'
 
 export default {
   name: 'TaskProgressBar',
-  components: {},
   props: {
     completedTasksCount: {
       type: Number,

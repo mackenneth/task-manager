@@ -4,7 +4,7 @@
       <nuxt />
     </main>
     <footer class="bg-neutral-300 p-3 fixed w-full bottom-0 left-0">
-      <TheNavigationMenu />
+      <the-navigation-menu />
     </footer>
   </div>
 </template>

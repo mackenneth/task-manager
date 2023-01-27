@@ -4,9 +4,9 @@
       Страница не найдена
     </h1>
     <img src="/img/error-404.png" class="w-full max-w-[650px] mb-4 mx-auto" alt="Логотип">
-    <NuxtLink to="/" class="block text-center mx-auto hover:text-blue-600 underline">
+    <nuxt-link to="/" class="block text-center mx-auto hover:text-blue-600 underline">
       На главную
-    </NuxtLink>
+    </nuxt-link>
   </div>
 </template>
 
