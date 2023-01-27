@@ -36,7 +36,6 @@ export default {
     CustomButton,
     CustomInput
   },
-  props: {},
   setup () {
     const store = useTasksStore()
     const taskTitle = ref('')

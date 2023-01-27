@@ -15,7 +15,6 @@ export default {
   components: {
     CustomInput
   },
-  props: {},
   setup () {
     const store = useTasksStore()
 

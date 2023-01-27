@@ -35,7 +35,6 @@
 <script lang="ts">
 export default {
   name: 'CustomButton',
-  components: {},
   props: {
     type: {
       type: String,

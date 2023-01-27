@@ -33,7 +33,6 @@
 <script lang="ts">
 export default {
   name: 'ButtonDeleteTask',
-  components: {},
   props: {
     iconSize: {
       type: String,
