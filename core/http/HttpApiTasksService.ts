@@ -1,7 +1,7 @@
 import { AxiosInstance, AxiosPromise } from 'axios'
 import { TTask } from '~/core/types/tasks'
 
-export default class HttpApiService {
+export default class HttpApiTasksService {
   private axiosInstance: AxiosInstance = {} as AxiosInstance
 
   private configs = {

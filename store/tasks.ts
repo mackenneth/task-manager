@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 import { TTask } from '~/core/types/tasks'
-import HttpApiService from '~/core/http/HttpApiService'
+import HttpApiTasksService from '~/core/http/HttpApiTasksService'
 import { generateUserId, getUserIdFromLocalStorage, searchTasksByQuery } from '~/core/helpers/helpers'
 import { axiosInstance } from '~/core/http/axios'
 
-const httpApiService = new HttpApiService(axiosInstance)
+const httpApiService = new HttpApiTasksService(axiosInstance)
 
 type TState = {
   tasks: Array<TTask>
