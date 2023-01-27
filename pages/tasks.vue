@@ -4,21 +4,21 @@
     <hr class="mb-5">
     <form-new-task class="mb-5" />
     <task-progress-bar
-      :completed-tasks-count="store.completedTasks.length"
-      :total-task-count="store.completedTasks.length + store.currentTasks.length"
+      :completed-tasks-count="tasksStore.completedTasks.length"
+      :total-task-count="tasksStore.completedTasks.length + tasksStore.currentTasks.length"
       :is-fetching="isFetching"
       class="mb-5"
     />
     <task-search-input class="mb-5" />
     <task-list
       title="Текущие задачи"
-      :tasks="store.currentTasks"
+      :tasks="tasksStore.currentTasks"
       class="mb-5"
       :is-fetching="isFetching"
     />
     <task-list
       title="Завершённые задачи"
-      :tasks="store.completedTasks"
+      :tasks="tasksStore.completedTasks"
       class="mb-5"
       :is-fetching="isFetching"
     />
@@ -33,6 +33,7 @@ import TaskList from '~/components/tasks/TaskList.vue'
 import { useTasksStore } from '~/store/tasks'
 import TaskSearchInput from '~/components/tasks/TaskSearchInput.vue'
 import TaskProgressBar from '~/components/tasks/TaskProgressBar.vue'
+import { useUserStore } from '~/store/user'
 
 export default {
   name: 'tasks',
@@ -44,20 +45,21 @@ export default {
     TaskList
   },
   setup () {
-    const store = useTasksStore()
+    const tasksStore = useTasksStore()
+    const userStore = useUserStore()
 
     const isFetching = ref(true)
 
     onMounted(() => {
-      store.setUserId()
-      store.getUserTasks()
+      userStore.setUserId()
+      tasksStore.getUserTasks(userStore.userId)
         .finally(() => {
           isFetching.value = false
         })
     })
     return {
       isFetching,
-      store
+      tasksStore
     }
   }
 }

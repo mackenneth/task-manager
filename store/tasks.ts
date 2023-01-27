@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { TTask } from '~/core/types/tasks'
 import HttpApiTasksService from '~/core/http/HttpApiTasksService'
-import { generateUserId, getUserIdFromLocalStorage, searchTasksByQuery } from '~/core/helpers/helpers'
+import { searchTasksByQuery } from '~/core/helpers/helpers'
 import { axiosInstance } from '~/core/http/axios'
 
 const httpApiService = new HttpApiTasksService(axiosInstance)
@@ -57,10 +57,10 @@ export const useTasksStore = defineStore('tasks', {
           })
       })
     },
-    getUserTasks () {
+    getUserTasks (userId: number | null) {
       return new Promise((resolve, reject) => {
-        if (this.userId) {
-          httpApiService.getTasksByUserId(this.userId)
+        if (userId) {
+          httpApiService.getTasksByUserId(userId)
             .then((response) => {
               this.tasks = response.data
               resolve(response)
@@ -112,14 +112,6 @@ export const useTasksStore = defineStore('tasks', {
     },
     updateSearchQuery (searchQuery: string) {
       this.searchQuery = searchQuery
-    },
-    setUserId () {
-      let userId = getUserIdFromLocalStorage()
-      if (!userId) {
-        userId = generateUserId()
-        localStorage.setItem('userId', JSON.stringify(userId))
-      }
-      this.userId = userId
     },
     toggleIsFetching (isFetching: boolean) {
       this.isFetching = isFetching
